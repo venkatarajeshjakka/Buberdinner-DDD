@@ -1,0 +1,17 @@
+/Users/venkatarajeshjakka/Projects/c-sharp/BuberDinner/BuberDinner.Infrastructure/bin/Debug/net7.0/BuberDinner.Infrastructure.deps.json
+/Users/venkatarajeshjakka/Projects/c-sharp/BuberDinner/BuberDinner.Infrastructure/bin/Debug/net7.0/BuberDinner.Infrastructure.dll
+/Users/venkatarajeshjakka/Projects/c-sharp/BuberDinner/BuberDinner.Infrastructure/bin/Debug/net7.0/BuberDinner.Infrastructure.pdb
+/Users/venkatarajeshjakka/Projects/c-sharp/BuberDinner/BuberDinner.Infrastructure/obj/Debug/net7.0/BuberDinner.Infrastructure.csproj.AssemblyReference.cache
+/Users/venkatarajeshjakka/Projects/c-sharp/BuberDinner/BuberDinner.Infrastructure/obj/Debug/net7.0/BuberDinner.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/venkatarajeshjakka/Projects/c-sharp/BuberDinner/BuberDinner.Infrastructure/obj/Debug/net7.0/BuberDinner.Infrastructure.AssemblyInfoInputs.cache
+/Users/venkatarajeshjakka/Projects/c-sharp/BuberDinner/BuberDinner.Infrastructure/obj/Debug/net7.0/BuberDinner.Infrastructure.AssemblyInfo.cs
+/Users/venkatarajeshjakka/Projects/c-sharp/BuberDinner/BuberDinner.Infrastructure/obj/Debug/net7.0/BuberDinner.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/venkatarajeshjakka/Projects/c-sharp/BuberDinner/BuberDinner.Infrastructure/obj/Debug/net7.0/BuberDinner.Infrastructure.dll
+/Users/venkatarajeshjakka/Projects/c-sharp/BuberDinner/BuberDinner.Infrastructure/obj/Debug/net7.0/refint/BuberDinner.Infrastructure.dll
+/Users/venkatarajeshjakka/Projects/c-sharp/BuberDinner/BuberDinner.Infrastructure/obj/Debug/net7.0/BuberDinner.Infrastructure.pdb
+/Users/venkatarajeshjakka/Projects/c-sharp/BuberDinner/BuberDinner.Infrastructure/obj/Debug/net7.0/ref/BuberDinner.Infrastructure.dll
+/Users/venkatarajeshjakka/Projects/c-sharp/BuberDinner/BuberDinner.Infrastructure/bin/Debug/net7.0/BuberDinner.Application.dll
+/Users/venkatarajeshjakka/Projects/c-sharp/BuberDinner/BuberDinner.Infrastructure/bin/Debug/net7.0/BuberDinner.Domain.dll
+/Users/venkatarajeshjakka/Projects/c-sharp/BuberDinner/BuberDinner.Infrastructure/bin/Debug/net7.0/BuberDinner.Application.pdb
+/Users/venkatarajeshjakka/Projects/c-sharp/BuberDinner/BuberDinner.Infrastructure/bin/Debug/net7.0/BuberDinner.Domain.pdb
+/Users/venkatarajeshjakka/Projects/c-sharp/BuberDinner/BuberDinner.Infrastructure/obj/Debug/net7.0/BuberDinner.Infrastructure.csproj.CopyComplete
