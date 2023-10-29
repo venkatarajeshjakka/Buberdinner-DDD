@@ -1,6 +1,6 @@
 using System.Net;
 
-namespace BuberDinner.Application.Common.Errors;
+namespace BuberDinner.Application.Common.ApplicationErrors;
 
 public interface IServiceException
 {

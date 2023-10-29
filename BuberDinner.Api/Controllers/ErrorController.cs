@@ -1,4 +1,4 @@
-using BuberDinner.Application.Common.Errors;
+using BuberDinner.Application.Common.ApplicationErrors;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 

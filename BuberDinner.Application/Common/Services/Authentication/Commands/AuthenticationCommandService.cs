@@ -1,38 +1,23 @@
 using BuberDinner.Application.Common.Interfaces.Authentication;
 using BuberDinner.Application.Common.Interfaces.Persistance;
-using BuberDinner.Domain.Common;
+using BuberDinner.Application.Services.Authentication.Common;
+using BuberDinner.Application.Services.Authentication.Commands;
 using BuberDinner.Domain.Entities;
+using BuberDinner.Domain.Common.Errors;
 using ErrorOr;
 
-namespace BuberDinner.Application.Services.Authentication;
+namespace BuberDinner.Application.Common.Services.Authentication.Commands;
 
-public class AuthenticationService : IAuthenticationService
+public class AuthenticationCommandService : IAuthenticationCommandService
 {
     private readonly IJwtTokenGenerator _jwtTokenGenerator;
     private readonly IUserRespository _userRepository;
-    public AuthenticationService(IJwtTokenGenerator jwtTokenGenerator, IUserRespository userRepository)
+    public AuthenticationCommandService(IJwtTokenGenerator jwtTokenGenerator, IUserRespository userRepository)
     {
         _jwtTokenGenerator = jwtTokenGenerator;
         _userRepository = userRepository;
     }
-    public ErrorOr<AuthenticationResult> Login(string email, string password)
-    {
-        if (_userRepository.GetUserByEmail(email) is not User user)
-        {
-            return Errors.Authentication.InValidCredentials;
-        }
 
-        if (user.Password != password)
-        {
-            return Errors.Authentication.InValidCredentials;
-        }
-
-        var token = _jwtTokenGenerator.GenerateToken(user);
-
-        return new AuthenticationResult(
-            user,
-            token);
-    }
 
     public ErrorOr<AuthenticationResult> Register(
         string firstName,
