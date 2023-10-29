@@ -7,22 +7,24 @@ using BuberDinner.Domain.Entities;
 using BuberDinner.Application.Authentication.Common;
 namespace BuberDinner.Application.Authentication.Queries.Login;
 
-public class LoginCommandHander : IRequestHandler<LoginCommand, ErrorOr<AuthenticationResult>>
+public class LoginQueryHander : IRequestHandler<LoginQuery, ErrorOr<AuthenticationResult>>
 {
     private readonly IJwtTokenGenerator _jwtTokenGenerator;
 
     private readonly IUserRespository _userRepository;
 
-    public LoginCommandHander(IJwtTokenGenerator jwtTokenGenerator,
+    public LoginQueryHander(IJwtTokenGenerator jwtTokenGenerator,
     IUserRespository userRepository)
     {
         _jwtTokenGenerator = jwtTokenGenerator;
         _userRepository = userRepository;
     }
 
-    public async Task<ErrorOr<AuthenticationResult>> Handle(LoginCommand query,
+    public async Task<ErrorOr<AuthenticationResult>> Handle(LoginQuery query,
     CancellationToken cancellationToken)
     {
+        await Task.CompletedTask;
+
         if (_userRepository.GetUserByEmail(query.Email) is not User user)
         {
             return Errors.Authentication.InValidCredentials;
