@@ -1,29 +1,34 @@
 using BuberDinner.Application.Common.Interfaces.Authentication;
 using BuberDinner.Application.Common.Interfaces.Persistance;
-using BuberDinner.Domain.Entities;
-using BuberDinner.Domain.Common.Errors;
 using ErrorOr;
-using BuberDinner.Application.Services.Authentication.Common;
+using MediatR;
+using BuberDinner.Domain.Common.Errors;
+using BuberDinner.Domain.Entities;
+using BuberDinner.Application.Authentication.Common;
+namespace BuberDinner.Application.Authentication.Queries.Login;
 
-namespace BuberDinner.Application.Common.Services.Authentication.Queries;
-
-public class AuthenticationQueryService : IAuthenticationQueryService
+public class LoginCommandHander : IRequestHandler<LoginCommand, ErrorOr<AuthenticationResult>>
 {
     private readonly IJwtTokenGenerator _jwtTokenGenerator;
+
     private readonly IUserRespository _userRepository;
-    public AuthenticationQueryService(IJwtTokenGenerator jwtTokenGenerator, IUserRespository userRepository)
+
+    public LoginCommandHander(IJwtTokenGenerator jwtTokenGenerator,
+    IUserRespository userRepository)
     {
         _jwtTokenGenerator = jwtTokenGenerator;
         _userRepository = userRepository;
     }
-    public ErrorOr<AuthenticationResult> Login(string email, string password)
+
+    public async Task<ErrorOr<AuthenticationResult>> Handle(LoginCommand query,
+    CancellationToken cancellationToken)
     {
-        if (_userRepository.GetUserByEmail(email) is not User user)
+        if (_userRepository.GetUserByEmail(query.Email) is not User user)
         {
             return Errors.Authentication.InValidCredentials;
         }
 
-        if (user.Password != password)
+        if (user.Password != query.Password)
         {
             return Errors.Authentication.InValidCredentials;
         }
@@ -34,5 +39,4 @@ public class AuthenticationQueryService : IAuthenticationQueryService
             user,
             token);
     }
-
 }
