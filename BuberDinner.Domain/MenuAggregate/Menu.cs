@@ -1,12 +1,12 @@
 using BuberDinner.Domain.Common.Models;
 using BuberDinner.Domain.Common.ValueObjects;
-using BuberDinner.Domain.Dinner.ValueObjects;
-using BuberDinner.Domain.Host.ValueObjects;
-using BuberDinner.Domain.Menu.Entities;
-using BuberDinner.Domain.Menu.ValueObjects;
-using BuberDinner.Domain.MenuReview.ValueObjects;
+using BuberDinner.Domain.DinnerAggregate.ValueObjects;
+using BuberDinner.Domain.HostAggregate.ValueObjects;
+using BuberDinner.Domain.MenuAggregate.Entities;
+using BuberDinner.Domain.MenuAggregate.ValueObjects;
+using BuberDinner.Domain.MenuReviewAggregate.ValueObjects;
 
-namespace BuberDinner.Domain.Menu;
+namespace BuberDinner.Domain.MenuAggregate;
 
 public sealed class Menu : AggregateRoot<MenuId>
 {
@@ -38,14 +38,14 @@ public sealed class Menu : AggregateRoot<MenuId>
         string description,
         HostId hostId,
         DateTime createDateTime,
-        DateTime updateDeteTime
+        DateTime updateDateTime
     ) : base(menuId)
     {
         Name = name;
         Description = description;
         HostId = hostId;
         CreateDateTime = createDateTime;
-        UpdateDeteTime = updateDeteTime;
+        UpdateDeteTime = updateDateTime;
     }
 
     public static Menu Create(
@@ -60,5 +60,10 @@ public sealed class Menu : AggregateRoot<MenuId>
             hostId,
             DateTime.UtcNow,
             DateTime.UtcNow);
+    }
+
+    public void AddMenuSection(List<MenuSection> sections)
+    {
+        _sections.AddRange(sections);
     }
 }
