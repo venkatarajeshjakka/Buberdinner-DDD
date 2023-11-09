@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
 
 namespace BuberDinner.Infrastructure;
 
@@ -29,6 +30,10 @@ public static class DependencyInjection
     }
     public static IServiceCollection AddPersistance(this IServiceCollection services)
     {
+        services.AddDbContext<BuberDinnerDbContent>(options =>
+        {
+            options.UseSqlServer("");
+        });
         services.AddScoped<IUserRespository, UserRespository>();
         services.AddScoped<IMenuRepository, MenuRepository>();
 
