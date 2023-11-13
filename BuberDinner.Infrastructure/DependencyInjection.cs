@@ -12,6 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
+using BuberDinner.Infrastructure.Persistance.Interceptors;
 
 namespace BuberDinner.Infrastructure;
 
@@ -34,6 +35,8 @@ public static class DependencyInjection
         {
             options.UseSqlServer("");
         });
+
+        services.AddScoped<PublishDomainEventsInterceptor>();
         services.AddScoped<IUserRespository, UserRespository>();
         services.AddScoped<IMenuRepository, MenuRepository>();
 

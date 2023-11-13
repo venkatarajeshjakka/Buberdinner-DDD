@@ -3,12 +3,13 @@ using BuberDinner.Domain.Common.ValueObjects;
 using BuberDinner.Domain.DinnerAggregate.ValueObjects;
 using BuberDinner.Domain.HostAggregate.ValueObjects;
 using BuberDinner.Domain.MenuAggregate.Entities;
+using BuberDinner.Domain.MenuAggregate.Events;
 using BuberDinner.Domain.MenuAggregate.ValueObjects;
 using BuberDinner.Domain.MenuReviewAggregate.ValueObjects;
 
 namespace BuberDinner.Domain.MenuAggregate;
 
-public sealed class Menu : AggregateRoot<MenuId>
+public sealed class Menu : AggregateRoot<MenuId, Guid>
 {
     private readonly List<MenuSection> _sections = new();
 
@@ -37,6 +38,7 @@ public sealed class Menu : AggregateRoot<MenuId>
          HostId hostId,
         string name,
         string description,
+        AverageRating averageRating,
         List<MenuSection> sections
     ) : base(menuId)
     {
@@ -44,22 +46,28 @@ public sealed class Menu : AggregateRoot<MenuId>
         Description = description;
         HostId = hostId;
         _sections = sections;
+        AverageRating = averageRating;
     }
 
     public static Menu Create(
         string hostId,
         string name,
         string description,
-        List<MenuSection> menuSections
+        List<MenuSection>? menuSections = null
        )
     {
-        return new(
+        var menu = new Menu(
             MenuId.CreateUnique(),
             HostId.Create(hostId),
             name,
             description,
-            menuSections
+            AverageRating.CreateNew(),
+            menuSections ?? new()
         );
+
+        menu.AddDomainEvent(new MenuCreated(menu));
+        return menu;
+
     }
 
     public void AddMenuSection(List<MenuSection> sections)
