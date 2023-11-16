@@ -1,6 +1,6 @@
 using BuberDinner.Domain.HostAggregate.ValueObjects;
 
-namespace BuberDinner.Application.UnitTests.TestUtils.Contansts;
+namespace BuberDinner.Application.UnitTests.TestUtils.Constants;
 
 public static partial class Constants
 {

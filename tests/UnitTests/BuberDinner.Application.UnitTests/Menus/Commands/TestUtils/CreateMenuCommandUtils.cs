@@ -1,11 +1,11 @@
 using BuberDinner.Application.Menus.Commands.CreateMenu;
-using BuberDinner.Application.UnitTests.TestUtils.Contansts;
+using BuberDinner.Application.UnitTests.TestUtils.Constants;
 
 namespace BuberDinner.Application.UnitTests.Menus.Commands.TestUtils;
 
 public static class CreateMenuCommandUtils
 {
-    public static CreateMenuCommand CreateMenuCommand() =>
+    public static CreateMenuCommand CreateCommand() =>
     new(
         Constants.Host.Id.ToString()!,
     Constants.Menu.Name,
